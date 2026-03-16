@@ -454,13 +454,12 @@
   <p class="tagline">Swipe through photos and pick your favorites — one at a time.</p>
   <button class="primary-btn" id="pickBtn">📂 Open Local Folder</button>
   <div class="source-divider">or use cloud storage</div>
-  <button class="ghost-btn" id="driveBtn">🗂 Google Drive</button>
-  <button class="ghost-btn" id="photosBtn">🖼 Google Photos</button>
+  <button class="ghost-btn" id="driveBtn" disabled style="opacity:0.45;cursor:not-allowed">🗂 Google Drive <span style="font-size:0.72rem;font-weight:600;background:#e8dfd6;color:#9e8c7e;border-radius:20px;padding:2px 8px;margin-left:4px">coming soon</span></button>
+  <button class="ghost-btn" id="photosBtn" disabled style="opacity:0.45;cursor:not-allowed">🖼 Google Photos <span style="font-size:0.72rem;font-weight:600;background:#e8dfd6;color:#9e8c7e;border-radius:20px;padding:2px 8px;margin-left:4px">coming soon</span></button>
   <div id="googleStatus" style="display:none">
     <span id="googleStatusLabel">Connected</span>
     <a id="disconnectBtn">Disconnect</a>
   </div>
-  <button class="ghost-btn" id="setupBtn" style="font-size:0.78rem;padding:8px 18px">⚙ Google API Setup</button>
   <p class="note">Works in all modern browsers &middot; Swipe or use ← → keys</p>
   <p class="footer-links">
     <a href="privacy.html">Privacy Policy</a> &middot;
