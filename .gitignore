@@ -1,0 +1,11 @@
+# Google OAuth credentials — never commit these
+client_secret_*.json
+*.json
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+agents.md
