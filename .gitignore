@@ -9,3 +9,4 @@ client_secret_*.json
 .vscode/
 .idea/
 agents.md
+ROADMAP.md
