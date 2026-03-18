@@ -596,7 +596,6 @@
   const pickBtn           = document.getElementById('pickBtn');
   const driveBtn          = document.getElementById('driveBtn');
   const photosBtn         = document.getElementById('photosBtn');
-  const setupBtn          = document.getElementById('setupBtn');
   const loadingMsg        = document.getElementById('loadingMsg');
   const photoImg          = document.getElementById('photoImg');
   const mainCard          = document.getElementById('mainCard');
@@ -751,7 +750,6 @@
     if (setupModalPendingAction) setupModalPendingAction();
   });
   document.getElementById('cancelSetupBtn').addEventListener('click', hideSetupModal);
-  setupBtn.addEventListener('click', () => showSetupModal(null));
 
   // ════════════════════════════════════════════════════════════════
   // OAUTH / GIS
