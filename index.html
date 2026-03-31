@@ -276,16 +276,28 @@
     }
     .card {
       position: relative; width: 100%; max-width: 420px;
-      height: 100%; max-height: calc(100dvh - 230px);
       border-radius: 20px; overflow: hidden;
       background: #1a1410;
       box-shadow: var(--shadow-lg);
       user-select: none; touch-action: none; cursor: grab;
+      transition: max-width 0.2s ease, max-height 0.2s ease;
+      /* Default: constrain height for portrait-oriented images */
+      height: 100%; max-height: calc(100dvh - 230px);
+    }
+    .card.landscape {
+      /* Landscape: let card go wider, limit height more so it stays short */
+      max-width: 90vw;
+      height: auto;
+      max-height: calc(100dvh - 250px);
     }
     .card:active { cursor: grabbing; }
     .card img {
       width: 100%; height: 100%;
       object-fit: contain; display: block;
+    }
+    .card.landscape img {
+      height: auto;
+      max-height: calc(100dvh - 250px);
     }
     .stamp {
       position: absolute; top: 24px;
@@ -1181,6 +1193,17 @@
       return;
     }
     getUrl(index + 1); // preload
+
+    // Detect orientation by loading image dimensions
+    const img = new Image();
+    img.src = url;
+    await new Promise(resolve => {
+      if (img.naturalWidth) { resolve(); return; }
+      img.onload = resolve;
+      img.onerror = resolve;
+    });
+    const isLandscape = img.naturalWidth > img.naturalHeight;
+    mainCard.classList.toggle('landscape', isLandscape);
 
     photoImg.src = url;
     filenameLabel.textContent = photos[index].name;
